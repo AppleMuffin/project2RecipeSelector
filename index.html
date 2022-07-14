@@ -4,9 +4,57 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New Title</title>
+    <title>Recipe Selector</title>
+    <link rel="stylesheet" href="./styles/styles.css">
 </head>
 <body>
-    
+    <header>
+        <h1>Recipe Selector</h1>
+        <p>Choose 2 different items from our drop down lists and we will give you a recipe containing those 2 ingredients</p>
+    </header>
+    <main>
+        <section>
+            <div class="wrapper">
+            <!-- an H2 with choose ingredients and 2 drop down menus for selections -->
+                <h2>Choose Your Ingredients</h2>
+                <form action="submitForm">
+                    <label for="ingredientSelector1">Choose Your First Ingredient</label>
+                    <select name="ingredientSelector1" id="ingredientSelector1">
+                        <option value="" selected disabled>Choose an option</option>
+                        <option value="#">Tuna</option>
+                        <option value="#">apples</option>
+                        <option value="#">Horse</option>
+                        <option value="#">Gum</option>
+                        <option value="#">Sugar</option>
+                    </select>
+                    <label for="ingredientSelector2">Choose Your Second Ingredient</label>
+                    <select name="ingredientSelector2" id="ingredientSelector2">
+                        <option value="" selected disabled>Choose an option</option>
+                        <option value="#">Peppers</option>
+                        <option value="#">Pork</option>
+                        <option value="#">Lettuce</option>
+                        <option value="#">Corn</option>
+                        <option value="#">Potatoes</option>
+                    </select>
+                    <div class="buttonContainer">
+                        <button>Submit</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+        <section>
+            <!-- A text container for the recipe returned from the API -->
+            <div class="textContainer">
+                <p>Recipe Instructions Here</p>
+            </div>
+            <!-- An img container for the img of the recipe returned from the API -->
+            <div class="imgContainer">
+                <img src="http://placekitten.com/200/250" alt="A picture of a recipe">
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>Made at Juno College</p>
+    </footer>
 </body>
 </html>
