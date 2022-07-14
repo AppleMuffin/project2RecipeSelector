@@ -2,3 +2,39 @@
     background-color: black;
     color: red;
 }
+
+h1 {
+    margin: 0;
+}
+
+.wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 90%;
+}
+
+header {
+    @include headerStyle;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-image: url('../assets/unsplashHeader1.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-align: center;
+    height: 500px;
+    h1, p {
+        color: white;
+        text-shadow: 2px 2px 2px #000000;  
+    }
+    p {
+        font-size: 1.2rem;
+    }
+}
+
+
+
+section {
+    @include bodyStyle;
+}
+

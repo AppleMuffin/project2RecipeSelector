@@ -1,0 +1,12 @@
+@mixin bodyStyle {
+  font-family: 'Rubik', sans-serif;
+  font-size: 1.2rem;
+  
+}
+
+@mixin headerStyle {
+  font-family: 'Rubik', sans-serif;
+  font-size: 2.0rem;
+  font-weight: 500;
+}
+
