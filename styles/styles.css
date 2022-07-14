@@ -217,13 +217,10 @@ template {
   overflow: hidden;
 }
 
-.buttonContainer {
-  background-color: black;
-  color: red;
-}
-
-h1 {
+h1, h2, p {
+  color: white;
   margin: 0;
+  text-align: center;
 }
 
 .wrapper {
@@ -243,7 +240,7 @@ header {
   background-size: cover;
   background-repeat: no-repeat;
   text-align: center;
-  height: 500px;
+  height: 600px;
 }
 header h1, header p {
   color: white;
@@ -254,6 +251,74 @@ header p {
 }
 
 section {
+  padding: 200px;
   font-family: "Rubik", sans-serif;
   font-size: 1.2rem;
+}
+section h2 {
+  padding: 20px;
+}
+
+.recipeInput {
+  background-color: #06AED5;
+}
+
+.recipeOutput {
+  background-color: #086788;
+}
+
+.formContainer {
+  display: flex;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+.inputContainer {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  flex-basis: 45%;
+}
+.inputContainer label {
+  padding-bottom: 20px;
+}
+
+label {
+  color: white;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  padding: 30px;
+}
+
+.recipeOutput .wrapper {
+  display: flex;
+  justify-content: center;
+}
+.recipeOutput .wrapper .textContainer, .recipeOutput .wrapper .imgContainer {
+  width: 50%;
+}
+
+.textContainer {
+  padding: 25px;
+}
+.textContainer p {
+  text-align: left;
+}
+
+footer {
+  font-family: "Rubik", sans-serif;
+  font-size: 1.2rem;
+  background-color: #06AED5;
+  padding: 25px 0;
+}
+footer a {
+  text-decoration: none;
+  color: white;
+}
+footer a:hover {
+  color: black;
 }/*# sourceMappingURL=styles.css.map */

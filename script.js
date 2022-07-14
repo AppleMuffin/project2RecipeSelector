@@ -13,6 +13,7 @@ recipeURL.search = new URLSearchParams({
 // as opposed to using multiple API calls like the one originally used below
 
 // const APIkey = 'apiKey=187c0eba5b0d4570b499b9d5f22c7a0a';
+// missedIngredients, usedIngredients and analyzedInstructions
 
 console.log(recipeURL)
 console.log(fetch(recipeURL))

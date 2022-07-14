@@ -20,48 +20,58 @@
         </div>
     </header>
     <main>
-        <section>
+        <section class="recipeInput">
             <div class="wrapper">
             <!-- an H2 with choose ingredients and 2 drop down menus for selections -->
                 <h2>Choose Your Ingredients</h2>
                 <form action="submitForm">
-                    <label for="ingredientSelector1">Choose Your First Ingredient</label>
-                    <select name="ingredientSelector1" id="ingredientSelector1">
-                        <option value="" selected disabled>Choose an option</option>
-                        <option value="#">Tuna</option>
-                        <option value="#">apples</option>
-                        <option value="#">Horse</option>
-                        <option value="#">Gum</option>
-                        <option value="#">Sugar</option>
-                    </select>
-                    <label for="ingredientSelector2">Choose Your Second Ingredient</label>
-                    <select name="ingredientSelector2" id="ingredientSelector2">
-                        <option value="" selected disabled>Choose an option</option>
-                        <option value="#">Peppers</option>
-                        <option value="#">Pork</option>
-                        <option value="#">Lettuce</option>
-                        <option value="#">Corn</option>
-                        <option value="#">Potatoes</option>
-                    </select>
+                    <div class="formContainer">
+                        <div class="inputContainer container1">
+                            <label for="ingredientSelector1">Choose Your First Ingredient</label>
+                            <select name="ingredientSelector1" id="ingredientSelector1">
+                                <option value="" selected disabled>Choose an option</option>
+                                <option value="#">Tuna</option>
+                                <option value="#">apples</option>
+                                <option value="#">Horse</option>
+                                <option value="#">Gum</option>
+                                <option value="#">Sugar</option>
+                            </select>
+                        </div>
+                        <div class="inputContainer container2">
+                            <label for="ingredientSelector2">Choose Your Second Ingredient</label>
+                            <select name="ingredientSelector2" id="ingredientSelector2">
+                                <option value="" selected disabled>Choose an option</option>
+                                <option value="#">Peppers</option>
+                                <option value="#">Pork</option>
+                                <option value="#">Lettuce</option>
+                                <option value="#">Corn</option>
+                                <option value="#">Potatoes</option>
+                            </select>
+                        </div>
+                    </div>
                     <div class="buttonContainer">
                         <button>Submit</button>
                     </div>
                 </form>
             </div>
         </section>
-        <section>
+        <section class="recipeOutput">
+            <div class="wrapper">
             <!-- A text container for the recipe returned from the API -->
-            <div class="textContainer">
-                <p>Recipe Instructions Here</p>
-            </div>
-            <!-- An img container for the img of the recipe returned from the API -->
-            <div class="imgContainer">
-                <img src="http://placekitten.com/200/250" alt="A picture of a recipe">
+                <div class="textContainer">
+                    <p>Choose some ingredients! The recipe instructions that use your selection will be placed here.</p>
+                </div> 
+                <!-- An img container for the img of the recipe returned from the API -->
+                <div class="imgContainer">
+                    <img src="http://placekitten.com/200/250" alt="A picture of a recipe">
+                </div>
             </div>
         </section>
     </main>
     <footer>
-        <p>Made at Juno College</p>
+        <p>
+            <a href="https://junocollege.com/">Created at Juno College</a>
+        </p>
     </footer>
 </body>
 </html>

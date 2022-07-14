@@ -1,10 +1,7 @@
-.buttonContainer {
-    background-color: black;
-    color: red;
-}
-
-h1 {
+h1, h2, p{
+    color: white;
     margin: 0;
+    text-align: center;
 }
 
 .wrapper {
@@ -22,7 +19,7 @@ header {
     background-size: cover;
     background-repeat: no-repeat;
     text-align: center;
-    height: 500px;
+    height: 600px;
     h1, p {
         color: white;
         text-shadow: 2px 2px 2px #000000;  
@@ -32,9 +29,75 @@ header {
     }
 }
 
-
-
 section {
+    padding: 200px;
     @include bodyStyle;
+    h2 {
+        padding: 20px;
+    }
 }
+
+.recipeInput {
+    background-color: $niceBlue;
+}
+
+.recipeOutput {
+    background-color: $darkBlue;
+}
+
+.formContainer {
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+}
+
+.inputContainer {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    flex-basis: 45%;
+    label {
+        padding-bottom: 20px;
+    }
+}
+
+label {
+    color: white;
+}
+
+.buttonContainer {
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+}
+
+.recipeOutput .wrapper {
+    display: flex;
+    justify-content: center;
+    .textContainer, .imgContainer {
+        width:50%;
+    }
+}
+
+.textContainer {
+    padding: 25px;
+    p {
+        text-align: left;
+    }
+}
+
+footer {
+    @include bodyStyle;
+    background-color: $niceBlue;
+    padding: 25px 0;
+    a {
+        text-decoration: none;
+        color: white;
+        &:hover {
+            color: black;
+        }
+    }
+}
+
 
