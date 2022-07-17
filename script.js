@@ -58,6 +58,11 @@ button.addEventListener('click', function(event){
 				document.querySelector('.textContainer p')
 				const recipeElement = document.querySelector('.textContainer p')
 				recipeElement.innerHTML = parsedInstructions
+
+				let recipeImage = document.querySelector('.imgContainer img')
+				recipeImage.src = recipe.image 
+
+
 			});
 		
 			
