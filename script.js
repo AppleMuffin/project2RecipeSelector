@@ -1,17 +1,29 @@
 // Create app namespace
 const recipeApp = {};
-
+recipeApp.getUserValues = (userSelect1, userSelect2) => {
+	const userValue1 = userSelect1.options[userSelect1.selectedIndex].value
+	const userValue2 = userSelect2.options[userSelect2.selectedIndex].value
+	recipeApp.apiURL.search = new URLSearchParams({
+		apiKey: '187c0eba5b0d4570b499b9d5f22c7a0a',
+		includeIngredients: `${userValue1},${userValue2}`,
+		addRecipeInformation: true,
+		number: 10,
+		//   fillIngredients: false,
+	});
+	console.log(recipeApp.apiURL)
+	// recipeApp.apiURL.includeIngredients = `${userValue1},${userValue2}`
+}
 // Saving the base URL
 recipeApp.apiURL = new URL ("https://api.spoonacular.com/recipes/complexSearch");
 
 // Saving the search paramaters and API Key
-recipeApp.apiURL.search = new URLSearchParams({
-  apiKey: '187c0eba5b0d4570b499b9d5f22c7a0a',
-  includeIngredients: `${} + ${}`,
-  addRecipeInformation: true,
-  fillIngredients: true,
-  number: 1
-});
+// recipeApp.apiURL.search = new URLSearchParams({
+//   apiKey: '187c0eba5b0d4570b499b9d5f22c7a0a',
+//   includeIngredients: `tofu,broccoli`,
+//   addRecipeInformation: true,
+//   number: 10
+// //   fillIngredients: false,
+// });
 
 recipeApp.init = () => {
   
@@ -26,12 +38,16 @@ button.addEventListener('click', function(event){
 	if (firstSelection.selectedIndex === 0 || secondSelection.selectedIndex === 0){
 		alert('Please select an item from each dropdown list')
 	} else {
-		[selectedIndex[.value]]
-
+		recipeApp.getUserValues (firstSelection, secondSelection)
+	
 		fetch(recipeApp.apiURL).then((response) => {
 			return response.json()
 			})
-			.then((result) => console.log(result));
+			.then((result) => {
+				console.log(result.results[Math.floor(Math.random() * result.results.length)]);
+			});
+		
+			
 	}
 	
 });
