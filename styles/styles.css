@@ -309,6 +309,12 @@ label {
   text-align: left;
 }
 
+.imgContainer img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  max-width: 400px;
+}
+
 footer {
   font-family: "Rubik", sans-serif;
   font-size: 1.2rem;

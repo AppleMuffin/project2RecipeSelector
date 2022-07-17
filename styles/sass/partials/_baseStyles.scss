@@ -87,6 +87,11 @@ label {
     }
 }
 
+.imgContainer img {
+    object-fit: cover;
+    max-width: 400px;
+}
+
 footer {
     @include bodyStyle;
     background-color: $niceBlue;

@@ -39,12 +39,25 @@ button.addEventListener('click', function(event){
 		alert('Please select an item from each dropdown list')
 	} else {
 		recipeApp.getUserValues (firstSelection, secondSelection)
-	
+		
 		fetch(recipeApp.apiURL).then((response) => {
 			return response.json()
 			})
+			// Console logging a randomized recipe. Save it to a variable called recipe. Then returning
+
+
 			.then((result) => {
 				console.log(result.results[Math.floor(Math.random() * result.results.length)]);
+				const recipe = result.results[Math.floor(Math.random() * result.results.length)];
+				const recipeInstructions = recipe.analyzedInstructions[0];
+				let parsedInstructions = ''
+				for (let i = 0; i < recipeInstructions.steps.length; i++){
+					parsedInstructions += `${i + 1} ${recipeInstructions.steps[i].step} <br><br>`
+				}
+				console.log(parsedInstructions)
+				document.querySelector('.textContainer p')
+				const recipeElement = document.querySelector('.textContainer p')
+				recipeElement.innerHTML = parsedInstructions
 			});
 		
 			
