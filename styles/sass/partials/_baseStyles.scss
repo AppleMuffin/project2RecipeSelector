@@ -12,12 +12,18 @@ h2 {
     font-size: 3.5rem;
 }
 
+
+
 .inputContainer select {
     background-color: white;
     border-radius: 5px 5px 5px 5px;
     font-size: 1.5rem;
     padding: 7px 0;
-}
+    transition: linear 0.1s all;
+    // &:hover {
+    //     border: 10px ridge $darkBlue
+    // }
+    }
 
 button {
     font-size: 2rem;
@@ -140,9 +146,13 @@ label {
     img {
     object-fit: cover;
     width: 500px;
-    max-width: 500px;
+    max-width: 600px;
     border-radius: 5%;
     border: white solid 5px;
+    transition: all linear 0.2s;
+    &:hover {
+        width: 600px;
+    }
     }
 }
 

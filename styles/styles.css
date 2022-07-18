@@ -236,6 +236,7 @@ h2 {
   border-radius: 5px 5px 5px 5px;
   font-size: 1.5rem;
   padding: 7px 0;
+  transition: linear 0.1s all;
 }
 
 button {
@@ -363,9 +364,13 @@ label {
   -o-object-fit: cover;
      object-fit: cover;
   width: 500px;
-  max-width: 500px;
+  max-width: 600px;
   border-radius: 5%;
   border: white solid 5px;
+  transition: all linear 0.2s;
+}
+.imgContainer img:hover {
+  width: 600px;
 }
 
 footer {

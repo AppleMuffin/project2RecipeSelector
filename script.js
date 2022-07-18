@@ -71,6 +71,7 @@ button.addEventListener('click', function(event){
 				// }
 			})
 			.then((result) => {
+				console.log(result)
 				recipeApp.getRecipeInfo(result)
 			})
 			// .catch((error) => {
