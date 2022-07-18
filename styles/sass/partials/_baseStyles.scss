@@ -3,11 +3,44 @@ h1, h2, p{
     margin: 0;
     text-align: center;
 }
+h1 {
+    font-size: 6rem;
+
+}
+
+h2 {
+    font-size: 3.5rem;
+}
+
+.inputContainer select {
+    background-color: white;
+    border-radius: 5px 5px 5px 5px;
+    font-size: 1.5rem;
+    padding: 7px 0;
+}
+
+button {
+    font-size: 2rem;
+    padding: 10px 20px;
+    background-color: white;
+    border-radius: 5px 5px 5px 5px;
+    border: 20px ridge $darkBlue;
+    font-weight: 700;
+    transition: color 0.2s linear, background-color 0.2s linear;
+    &:hover {
+        color: white;
+        background-color: black;
+    }
+    &:active {
+        font-size: 1.9rem;
+    }
+
+}
 
 .wrapper {
-    max-width: 1200px;
+    max-width: 1500px;
     margin: 0 auto;
-    width: 90%;
+    width: 100%;
 }
 
 header {
@@ -25,12 +58,12 @@ header {
         text-shadow: 2px 2px 2px #000000;  
     }
     p {
-        font-size: 1.2rem;
+        font-size: 1.5rem;
     }
 }
 
 section {
-    padding: 200px;
+    padding: 75px;
     @include bodyStyle;
     h2 {
         padding: 20px;
@@ -74,23 +107,45 @@ label {
 
 .recipeOutput .wrapper {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.recipeTitle {
+    text-transform: capitalize;
+}
+
+.recipeHolder {
+    width: 100vw;
+    display: flex;
     justify-content: center;
-    .textContainer, .imgContainer {
-        width:50%;
+    .textContainer,.imgContainer {
+        width: 50%;
     }
 }
 
 .textContainer {
-    padding: 25px;
+    padding: 25px 25px 25px 50px;
     p {
         text-align: left;
+        font-size: 1.2rem;
+        line-height: 1.8rem;
     }
 }
 
-.imgContainer img {
+.imgContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
     object-fit: cover;
-    max-width: 400px;
+    width: 500px;
+    max-width: 500px;
+    border-radius: 5%;
+    border: white solid 5px;
+    }
 }
+
 
 footer {
     @include bodyStyle;
