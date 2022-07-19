@@ -217,7 +217,7 @@ template {
   overflow: hidden;
 }
 
-h1, h2, p {
+h1, h2, p, h3 {
   color: white;
   margin: 0;
   text-align: center;
@@ -231,6 +231,11 @@ h2 {
   font-size: 3.5rem;
 }
 
+h3 {
+  font-size: 2.2rem;
+  padding: 20px;
+}
+
 .inputContainer select {
   background-color: white;
   border-radius: 5px 5px 5px 5px;
@@ -239,8 +244,25 @@ h2 {
   transition: linear 0.1s all;
 }
 
+.optionalSelections {
+  padding: 20px 0 30px 0;
+  display: flex;
+  justify-content: space-evenly;
+}
+.optionalSelections label {
+  padding-bottom: 10px;
+}
+.optionalSelections select {
+  background-color: white;
+}
+
+.optionalSelectionBox {
+  display: flex;
+  flex-direction: column;
+}
+
 button {
-  font-size: 2rem;
+  font-size: 2.5rem;
   padding: 10px 20px;
   background-color: white;
   border-radius: 5px 5px 5px 5px;
