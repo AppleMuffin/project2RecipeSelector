@@ -32,17 +32,32 @@ recipeApp.getRecipeInfo = (result) => {
 		let recipeImage = document.querySelector('.imgContainer img')
 		recipeImage.src = recipe.image
 
+		const macros = [];
+		recipe.nutrition.nutrients.forEach((nutritionFactAmount) => {
+			macros.push(Math.round(nutritionFactAmount.amount));
+		});
+
+		// [cal, protein, fat, carbs]
+	document.querySelector('.caloriesAmount').innerText = macros[0];
+	document.querySelector('.proteinAmount').innerText = macros[1];
+	document.querySelector('.fatAmount').innerText = macros[2];
+	document.querySelector('.carbsAmount').innerText = macros[3];
+	document.querySelector('.imgContainer p').style.display = 'inline';
+	
+	
+
 };
 
 // assign all user selections to the API query
-recipeApp.getUserValues = (userSelect1, userSelect2, optional1, optional2, optional3) => {
+recipeApp.getUserValues = (userSelect1, userSelect2, optional1, optional2, optional3, optional4) => {
 
 	const userValue1 = userSelect1.options[userSelect1.selectedIndex].value
 	const userValue2 = userSelect2.options[userSelect2.selectedIndex].value
 	const userProtein = optional1.options[optional1.selectedIndex].value
 	const userFat = optional2.options[optional2.selectedIndex].value
 	const userCarbs = optional3.options[optional3.selectedIndex].value
-	// const userCalories = optional4.options[optional4.selectedIndex].value
+	const userCalories = optional4.options[optional4.selectedIndex].value
+	console.log(userCalories)
 
 	recipeApp.apiURL.search = new URLSearchParams({
 		apiKey: '187c0eba5b0d4570b499b9d5f22c7a0a',
@@ -51,7 +66,7 @@ recipeApp.getUserValues = (userSelect1, userSelect2, optional1, optional2, optio
 		minProtein: userProtein,
 		minCarbs: userCarbs,
 		minFat: userFat,
-		// maxCalories: userCalories,
+		maxCalories: userCalories,
 		number: 10,
 	});
 	console.log(recipeApp.apiURL)
@@ -69,14 +84,15 @@ button.addEventListener('click', function(event){
 	let userProtein = document.querySelector('#proteinContent');
 	let userFat = document.querySelector('#fatContent');
 	let userCarbs = document.querySelector('#carbsContent');
-	// let userCalories = document.querySelector('#caloriesContent');
+	let userCalories = document.querySelector('#caloriesContent');
 
 	if (firstIngredient.selectedIndex === 0 || secondIngredient.selectedIndex === 0){
 		
 		alert('Please select an item from the ingredients dropdown list.')
 
 	} else {
-		recipeApp.getUserValues (firstIngredient, secondIngredient, userProtein, userFat, userCarbs) //serCalories)
+
+		recipeApp.getUserValues (firstIngredient, secondIngredient, userProtein, userFat, userCarbs, userCalories)
 		
 		fetch(recipeApp.apiURL)
 			.then((response) => {

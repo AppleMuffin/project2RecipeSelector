@@ -379,8 +379,12 @@ label {
 
 .imgContainer {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+.imgContainer p {
+  padding: 30px 0;
 }
 .imgContainer img {
   -o-object-fit: cover;

@@ -37,9 +37,9 @@
                                 <option value="salmon">Salmon</option>
                                 <option value="lemons">Lemons</option>
                                 <option value="lentils">Lentils</option>
-                                <option value="tempeh">Tempeh</option>
-                                <option value="lobster">Lobster</option>
-                                <option value="scallops">Scallops</option>
+                                <option value="eggs">Eggs</option>
+                                <option value="shrimp">Shrimp</option>
+                                <option value="turkey">Turkey</option>
                             </select>
                         </div>
                         <div class="inputContainer container2">
@@ -90,12 +90,12 @@
                             </select>
                         </div>
                         <div class="optionalSelectionBox">
-                            <label for="">Calorie Content (kJ)</label>
-                            <select name="calorieContent" id="fatContent">
-                                <option value="0">Don't Care</option>
-                                <option value="10">A little</option>
-                                <option value="20">A bit more</option>
-                                <option value="30">A lot</option>
+                            <label for="">Calorie Content (kcal)</label>
+                            <select name="caloriesContent" id="caloriesContent">
+                                <option value="100000">Don't Care</option>
+                                <option value="500">A little</option>
+                                <option value="1000">A bit more</option>
+                                <option value="1500">A lot</option>
                             </select>
                         </div>
                     </div>
@@ -116,6 +116,7 @@
                     </div> 
                     <!-- An img container for the img of the recipe returned from the API -->
                     <div class="imgContainer">
+                        <p hidden>Recipe Nutrition Facts: <span class="proteinAmount"></span>  g of protein, <span class="fatAmount"></span> g of fat, <span class="carbsAmount"></span> g  of carbs, <span class="caloriesAmount"></span> kcal of calories</p>
                         <img src="./assets/unsplashHeader2.jpg" alt="A picture of a recipe">
                     </div>
                 </div>
