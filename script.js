@@ -65,8 +65,8 @@ recipeApp.getUserValues = (userSelect1, userSelect2, optional1, optional2, optio
 		addRecipeInformation: true,
 		minProtein: userProtein,
 		minCarbs: userCarbs,
-		minFat: userFat,
-		maxCalories: userCalories,
+		// minFat: userFat,
+		// maxCalories: userCalories,
 		number: 10,
 	});
 	console.log(recipeApp.apiURL)
