@@ -254,11 +254,15 @@ h3 {
 }
 .optionalSelections select {
   background-color: white;
+  padding: 7px 0;
 }
 
 .optionalSelectionBox {
   display: flex;
   flex-direction: column;
+}
+.optionalSelectionBox select {
+  border-radius: 5px 5px 5px 5px;
 }
 
 button {
@@ -375,6 +379,8 @@ label {
   text-align: left;
   font-size: 1.2rem;
   line-height: 1.8rem;
+  opacity: 0.5;
+  transition: 2s linear all;
 }
 
 .imgContainer {

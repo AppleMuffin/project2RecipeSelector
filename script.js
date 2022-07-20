@@ -11,40 +11,46 @@ recipeApp.getRecipeInfo = (result) => {
 
 		// get recipe object and its instructions
 		const recipe = result.results[Math.floor(Math.random() * result.results.length)];
-		const recipeInstructions = recipe.analyzedInstructions[0];
+		if (recipe) {
 
-		// display recipe title on page
-		const recipeTitle = recipe.title;
-		const titleElement = document.querySelector('.recipeTitle');
-		titleElement.innerText = recipeTitle;
+			const recipeInstructions = recipe.analyzedInstructions[0];
+
+			// display recipe title on page
+			const recipeTitle = recipe.title;
+			const titleElement = document.querySelector('.recipeTitle');
+			titleElement.innerText = recipeTitle;
 
 
-		// parse recipe instructions and display on page
-		let parsedInstructions = ''
-		for (let i = 0; i < recipeInstructions.steps.length; i++) {
-			parsedInstructions += `${i + 1}.  ${recipeInstructions.steps[i].step} <br><br>`
+			// parse recipe instructions and display on page
+			let parsedInstructions = ''
+			for (let i = 0; i < recipeInstructions.steps.length; i++) {
+				parsedInstructions += `${i + 1}.  ${recipeInstructions.steps[i].step} <br><br>`
+			}
+
+			const recipeElement = document.querySelector('.textContainer p')
+			recipeElement.innerHTML = parsedInstructions
+
+			recipeElement.style.opacity = '1'
+
+			// add recipe image to page
+			let recipeImage = document.querySelector('.imgContainer img')
+			recipeImage.src = recipe.image
+
+			const macros = [];
+			recipe.nutrition.nutrients.forEach((nutritionFactAmount) => {
+				macros.push(Math.round(nutritionFactAmount.amount));
+			});
+
+			// [cal, protein, fat, carbs]
+			document.querySelector('.caloriesAmount').innerText = macros[0];
+			document.querySelector('.proteinAmount').innerText = macros[1];
+			document.querySelector('.fatAmount').innerText = macros[2];
+			document.querySelector('.carbsAmount').innerText = macros[3];
+			document.querySelector('.imgContainer p').style.display = 'inline';
+		} else {
+			alert('Your Selected combination didn\'t return a recipe. Please amend selections and try again')
 		}
-
-		const recipeElement = document.querySelector('.textContainer p')
-		recipeElement.innerHTML = parsedInstructions
-
-		// add recipe image to page
-		let recipeImage = document.querySelector('.imgContainer img')
-		recipeImage.src = recipe.image
-
-		const macros = [];
-		recipe.nutrition.nutrients.forEach((nutritionFactAmount) => {
-			macros.push(Math.round(nutritionFactAmount.amount));
-		});
-
-		// [cal, protein, fat, carbs]
-	document.querySelector('.caloriesAmount').innerText = macros[0];
-	document.querySelector('.proteinAmount').innerText = macros[1];
-	document.querySelector('.fatAmount').innerText = macros[2];
-	document.querySelector('.carbsAmount').innerText = macros[3];
-	document.querySelector('.imgContainer p').style.display = 'inline';
-	
-	
+		
 
 };
 
@@ -57,7 +63,6 @@ recipeApp.getUserValues = (userSelect1, userSelect2, optional1, optional2, optio
 	const userFat = optional2.options[optional2.selectedIndex].value
 	const userCarbs = optional3.options[optional3.selectedIndex].value
 	const userCalories = optional4.options[optional4.selectedIndex].value
-	console.log(userCalories)
 
 	recipeApp.apiURL.search = new URLSearchParams({
 		apiKey: '187c0eba5b0d4570b499b9d5f22c7a0a',
@@ -65,8 +70,8 @@ recipeApp.getUserValues = (userSelect1, userSelect2, optional1, optional2, optio
 		addRecipeInformation: true,
 		minProtein: userProtein,
 		minCarbs: userCarbs,
-		// minFat: userFat,
-		// maxCalories: userCalories,
+		minFat: userFat,
+		maxCalories: userCalories,
 		number: 10,
 	});
 	console.log(recipeApp.apiURL)
