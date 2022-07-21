@@ -103,6 +103,28 @@ section {
         padding: 20px;
     }
 }
+// We used this .animate to style our H2 and will animate it using JS. Taken from commented out URL above h2 in index.html document.
+.ml9 {
+    position: relative;
+    font-weight: 200;
+    font-size: 3em;
+}
+
+.ml9 .text-wrapper {
+    position: relative;
+    display: inline-block;
+    padding-top: 0.2em;
+    padding-right: 0.05em;
+    padding-bottom: 0.1em;
+    overflow: hidden;
+}
+
+.ml9 .letter {
+    transform-origin: 50% 100%;
+    display: inline-block;
+    line-height: 1em;
+}
+// END to .animate from the URL for h2
 
 .recipeInput {
     background-color: $niceBlue;
@@ -137,6 +159,12 @@ label {
     display: flex;
     justify-content: center;
     padding: 30px;
+}
+
+.loadingContainer {
+    display: flex;
+    justify-content: center;
+    opacity: 0;
 }
 
 .recipeOutput .wrapper {

@@ -82,7 +82,10 @@ recipeApp.getUserValues = (userSelect1, userSelect2, optional1, optional2, optio
 const button = document.querySelector('.buttonSubmit')
 button.addEventListener('click', function(event){
 	event.preventDefault()
-
+	// Disable button on click
+	this.disabled = true
+	document.querySelector('loadingContainer').style.opacity = '1'
+	
 	// consider making a function to select all of these variables, and putting it into an array, and then using spread in the recipeApp.getUserValues
 	let firstIngredient = document.querySelector("#ingredientSelector1");
 	let secondIngredient = document.querySelector("#ingredientSelector2");
@@ -94,7 +97,7 @@ button.addEventListener('click', function(event){
 	if (firstIngredient.selectedIndex === 0 || secondIngredient.selectedIndex === 0){
 		
 		alert('Please select an item from the ingredients dropdown list.')
-
+		this.disabled = false
 	} else {
 
 		recipeApp.getUserValues (firstIngredient, secondIngredient, userProtein, userFat, userCarbs, userCalories)
@@ -116,10 +119,33 @@ button.addEventListener('click', function(event){
 			// 		alert('No recipes found. Please select another combination!')
 			// 	}
 			// });
-	
+
+		// re-enable button
+		this.disabled = false
 	}
 	
 });
+
+// Used anime URL from H2 in index.html 
+
+const textWrapper = document.querySelector('.ml9 .letters');
+textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+
+anime.timeline({ loop: true })
+	.add({
+		targets: '.ml9 .letter',
+		scale: [0, 1],
+		duration: 1000,
+		elasticity: 600,
+		delay: (el, i) => 25 * (i + 1)
+	}).add({
+		targets: '.ml9',
+		opacity: 0,
+		duration: 1000,
+		easing: "easeOutExpo",
+		delay: 3500
+	});
+// END of H2 URL used 
 
 recipeApp.init = () => {
 
