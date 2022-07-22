@@ -225,6 +225,7 @@ h1, h2, p, h3 {
 
 h1 {
   font-size: 6rem;
+  transition: linear all 0.2s;
 }
 
 h2 {
@@ -378,6 +379,7 @@ label {
   display: flex;
   justify-content: center;
   opacity: 0;
+  transition: 0.5s linear all;
 }
 
 .recipeOutput .wrapper {
@@ -394,13 +396,14 @@ label {
   width: 100vw;
   display: flex;
   justify-content: center;
+  transition: all linear 0.2s;
 }
 .recipeHolder .textContainer, .recipeHolder .imgContainer {
   width: 50%;
 }
 
 .textContainer {
-  padding: 25px 25px 25px 50px;
+  padding: 50px;
 }
 .textContainer p {
   text-align: left;
@@ -444,4 +447,41 @@ footer a {
 }
 footer a:hover {
   color: black;
+}
+
+@media (max-width: 1100px) {
+  .recipeHolder {
+    flex-direction: column;
+    align-items: center;
+  }
+  .textContainer {
+    width: 90vw;
+    padding: 20px;
+  }
+  .imgContainer img {
+    width: 90vw;
+  }
+}
+@media (max-width: 870px) {
+  .formContainer {
+    flex-direction: column;
+  }
+}
+@media (max-width: 700px) {
+  .optionalSelections {
+    flex-direction: column;
+  }
+  header .wrapper p {
+    padding: 20px;
+  }
+}
+@media (max-width: 575px) {
+  header .wrapper h1 {
+    font-size: 4rem;
+  }
+}
+@media (max-width: 400px) {
+  header .wrapper h1 {
+    font-size: 3rem;
+  }
 }/*# sourceMappingURL=styles.css.map */

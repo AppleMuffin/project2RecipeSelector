@@ -41,7 +41,7 @@ recipeApp.getRecipeInfo = (result) => {
 				macros.push(Math.round(nutritionFactAmount.amount));
 			});
 
-			// [cal, protein, fat, carbs]
+			// add nutrient info
 			document.querySelector('.caloriesAmount').innerText = macros[0];
 			document.querySelector('.proteinAmount').innerText = macros[1];
 			document.querySelector('.fatAmount').innerText = macros[2];
@@ -73,20 +73,25 @@ recipeApp.getUserValues = (userSelect1, userSelect2, optional1, optional2, optio
 		minFat: userFat,
 		maxCalories: userCalories,
 		number: 10,
+		fillIngredients: true
 	});
-	console.log(recipeApp.apiURL)
 }
 
 
 // Attach an event handler to the Sumbit Button and prevent the default action of refreshing the page. Then Alert user if either dropdown ingredient has not been selected.
 const button = document.querySelector('.buttonSubmit')
 button.addEventListener('click', function(event){
-	event.preventDefault()
-	// Disable button on click
-	this.disabled = true
-	document.querySelector('loadingContainer').style.opacity = '1'
+	event.preventDefault();
+
+	// hide button to prevent spamming
+	this.style.visibility = 'hidden';
+	// Disable button 
+	this.disabled = true;
+
+	// show loading pacman
+	let loadingLogo = document.querySelector('.loadingContainer');
+	loadingLogo.style.opacity = '1';
 	
-	// consider making a function to select all of these variables, and putting it into an array, and then using spread in the recipeApp.getUserValues
 	let firstIngredient = document.querySelector("#ingredientSelector1");
 	let secondIngredient = document.querySelector("#ingredientSelector2");
 	let userProtein = document.querySelector('#proteinContent');
@@ -97,7 +102,11 @@ button.addEventListener('click', function(event){
 	if (firstIngredient.selectedIndex === 0 || secondIngredient.selectedIndex === 0){
 		
 		alert('Please select an item from the ingredients dropdown list.')
-		this.disabled = false
+
+		// re-enable button and remove loading
+		this.disabled = false;
+		this.style.visibility = 'visible';
+		loadingLogo.style.opacity = '0';
 	} else {
 
 		recipeApp.getUserValues (firstIngredient, secondIngredient, userProtein, userFat, userCarbs, userCalories)
@@ -106,24 +115,18 @@ button.addEventListener('click', function(event){
 			.then((response) => {
 				if (response) {
 					return response.json()
-				} //else {
-				// 	throw new Error('something went wrong')
-				// }
+				} 
 			})
 			.then((result) => {
 				console.log(result)
 				recipeApp.getRecipeInfo(result)
-			})
-			// .catch((error) => {
-			// 	if (error.message === "something went wrong") {
-			// 		alert('No recipes found. Please select another combination!')
-			// 	}
-			// });
 
-		// re-enable button
-		this.disabled = false
+				// re-enable button and remove loading
+				this.disabled = false;
+				this.style.visibility = 'visible';
+				loadingLogo.style.opacity = '0';
+			})
 	}
-	
 });
 
 // Used anime URL from H2 in index.html 
@@ -147,6 +150,7 @@ anime.timeline({ loop: true })
 	});
 // END of H2 URL used 
 
+// didnt need to use, left in, in case we add features
 recipeApp.init = () => {
 
 };

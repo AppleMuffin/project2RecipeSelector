@@ -5,7 +5,7 @@ h1, h2, p, h3{
 }
 h1 {
     font-size: 6rem;
-
+    transition: linear all 0.2s;
 }
 
 h2 {
@@ -17,17 +17,12 @@ h3 {
     padding: 20px;
 }
 
-
-
 .inputContainer select {
     background-color: white;
     border-radius: 5px 5px 5px 5px;
     font-size: 1.5rem;
     padding: 7px 0;
     transition: linear 0.1s all;
-    // &:hover {
-    //     border: 10px ridge $darkBlue
-    // }
     }
 
 .optionalSelections {
@@ -47,10 +42,8 @@ h3 {
     display: flex;
     flex-direction: column;
     select {
-        border-radius: 5px 5px 5px 5px;
-        
-    }
-    
+        border-radius: 5px 5px 5px 5px; 
+    } 
 }
 
 button {
@@ -103,6 +96,7 @@ section {
         padding: 20px;
     }
 }
+
 // We used this .animate to style our H2 and will animate it using JS. Taken from commented out URL above h2 in index.html document.
 .ml9 {
     position: relative;
@@ -165,6 +159,7 @@ label {
     display: flex;
     justify-content: center;
     opacity: 0;
+    transition: 0.5s linear all;
 }
 
 .recipeOutput .wrapper {
@@ -181,13 +176,14 @@ label {
     width: 100vw;
     display: flex;
     justify-content: center;
+    transition: all linear 0.2s;
     .textContainer,.imgContainer {
         width: 50%;
     }
 }
 
 .textContainer {
-    padding: 25px 25px 25px 50px;
+    padding: 50px;
     p {
         text-align: left;
         font-size: 1.2rem;
@@ -217,7 +213,6 @@ label {
     }
     }
 }
-
 
 footer {
     @include bodyStyle;
